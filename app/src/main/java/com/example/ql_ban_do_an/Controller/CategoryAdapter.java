@@ -1,5 +1,6 @@
 package com.example.ql_ban_do_an.Controller;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -37,8 +38,10 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.viewho
         return new viewholder(inflate);
     }
 
+    @SuppressLint("RecyclerView")
     @Override
     public void onBindViewHolder(@NonNull CategoryAdapter.viewholder viewholder, int i) {
+        int adapterPosition = viewholder.getAdapterPosition();
         viewholder.titleTxt.setText(items.get(i).getName());
         switch (i)
         {

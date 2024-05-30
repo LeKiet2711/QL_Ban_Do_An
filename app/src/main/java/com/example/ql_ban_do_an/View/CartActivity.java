@@ -14,6 +14,7 @@ public class CartActivity extends AppCompatActivity {
     private ActivityCartBinding binding;
     private RecyclerView.Adapter adapter;
     private ManagmentCart managementCart;
+    private double tax;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,4 +24,8 @@ public class CartActivity extends AppCompatActivity {
         managementCart=new ManagmentCart(this);
 
     }
+    private void caculateCart(){
+
+    }
+
 }

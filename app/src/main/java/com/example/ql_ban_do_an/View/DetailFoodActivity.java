@@ -65,8 +65,7 @@ public class DetailFoodActivity extends AppCompatActivity {
         btnBackDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DetailFoodActivity.this, ListFoodActivity.class);
-                startActivity(intent);
+                finish();
             }
         });
 

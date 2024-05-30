@@ -7,28 +7,29 @@
     android:orientation="vertical"
     tools:context=".View.ListFoodActivity">
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content">
 
         <ImageButton
             android:id="@+id/btnBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="#00000000"
-            app:srcCompat="@drawable/arrow" />
+            android:layout_gravity="start|center"
+            android:src="@drawable/arrow"
+            android:backgroundTint="#00000000" />
 
         <TextView
             android:id="@+id/tvTitleA"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:textStyle="bold"
-            android:textSize="12pt"
+            android:layout_gravity="center"
+            android:text="TextView"
             android:textColor="@color/black"
-            android:text="TextView" />
-    </LinearLayout>
+            android:textSize="12pt"
+            android:textStyle="bold" />
+    </FrameLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

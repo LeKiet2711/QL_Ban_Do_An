@@ -21,7 +21,7 @@
             android:name=".View.IntroActivity"
             android:exported="false" />
         <activity
-            android:name=".View.ListFoodActivity"
+            android:name=".View.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,7 +33,7 @@
             android:name=".View.CartActivity"
             android:exported="false" />
         <activity
-            android:name=".View.MainActivity"
+            android:name=".View.ListFoodActivity"
             android:exported="false" />
         <activity
             android:name=".View.DetailFoodActivity"

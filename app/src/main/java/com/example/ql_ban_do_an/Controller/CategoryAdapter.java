@@ -1,6 +1,7 @@
 package com.example.ql_ban_do_an.Controller;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.ql_ban_do_an.Model.Category;
 import com.example.ql_ban_do_an.Model.Foods;
 import com.example.ql_ban_do_an.R;
+import com.example.ql_ban_do_an.View.ListFoodActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -87,6 +89,16 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.viewho
             // Xử lý khi imagePath null hoặc rỗng
             viewholder.pic.setImageResource(R.drawable.btn_5); // Thay bằng một resource id ảnh placeholder thực tế
         }
+
+        viewholder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, ListFoodActivity.class);
+                intent.putExtra("CategoryId", items.get(i).getId());
+                intent.putExtra("CategoryName", items.get(i).getName());
+                context.startActivity(intent);
+            }
+        });
 
     }
 

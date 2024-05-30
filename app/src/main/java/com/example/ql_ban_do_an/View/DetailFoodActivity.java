@@ -14,12 +14,13 @@ import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.ql_ban_do_an.Model.Foods;
 import com.example.ql_ban_do_an.R;
+import com.example.ql_ban_do_an.databinding.ActivityDetailFoodBinding;
 import com.squareup.picasso.Picasso;
 
 import java.text.DecimalFormat;
 
 public class DetailFoodActivity extends AppCompatActivity {
-
+    ActivityDetailFoodBinding binding;
     ImageButton btnBackDetail, btnFavourite;
     ImageView imgDetail;
     RatingBar ratingBar;
@@ -32,7 +33,8 @@ public class DetailFoodActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_food);
+        binding = ActivityDetailFoodBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         addControl();
         foods = getIntentExtra();
@@ -73,7 +75,7 @@ public class DetailFoodActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int n = Integer.parseInt(tvNum.getText().toString());
                 n--;
-                if(n <= 0)
+                if (n <= 0)
                     n = 1;
                 num = n;
                 tvNum.setText(String.valueOf(n));
@@ -112,17 +114,17 @@ public class DetailFoodActivity extends AppCompatActivity {
     void addVariable(Foods foods) {
         Picasso.with(getApplicationContext())
                 .load(foods.getImagePath())
-                .into(imgDetail);
+                .into(binding.imgDetail);
 
-        tvTitleDetail.setText(foods.getTitle());
-        tvPriceDetail.setText("$" + String.valueOf(foods.getPrice()));
-        tvRateDetail.setText(String.valueOf(foods.getStar()));
+        binding.tvTitleDetail.setText(foods.getTitle());
+        binding.tvPriceDetail.setText("$" + String.valueOf(foods.getPrice()));
+        binding.tvRateDetail.setText(String.valueOf(foods.getStar()));
         double starValue = foods.getStar();
-        ratingBar.setRating((float) 4.5f);
-        float s = ratingBar.getRating();
-        tvTotal.setText("$" + String.valueOf(foods.getPrice() * num));
-        tvDescription.setText(foods.getDescription());
-        tvDescription.setMovementMethod(new ScrollingMovementMethod());
-        tvTimeDetail.setText(String.valueOf(foods.getTimeValue()) + " min");
+        binding.ratingBar.setRating((float) 4.5f);
+        float s = binding.ratingBar.getRating();
+        binding.tvTotal.setText("$" + String.valueOf(foods.getPrice() * num));
+        binding.tvDescription.setText(foods.getDescription());
+        binding.tvDescription.setMovementMethod(new ScrollingMovementMethod());
+        binding.tvTimeDetail.setText(String.valueOf(foods.getTimeValue()) + " min");
     }
 }

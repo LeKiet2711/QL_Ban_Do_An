@@ -15,7 +15,7 @@
         android:theme="@style/Theme.QL_Ban_Do_An"
         tools:targetApi="31">
         <activity
-            android:name=".View.ListFoodActivity"
+            android:name=".View.MainActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,7 +27,7 @@
             android:name=".View.CartActivity"
             android:exported="false" />
         <activity
-            android:name=".View.MainActivity"
+            android:name=".View.ListFoodActivity"
             android:exported="false" />
         <activity
             android:name=".View.DetailFoodActivity"

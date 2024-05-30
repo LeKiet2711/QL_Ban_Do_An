@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.example.ql_ban_do_an.Controller.CustomAdapterListFood;
 import com.example.ql_ban_do_an.Model.Foods;
 import com.example.ql_ban_do_an.R;
+import com.example.ql_ban_do_an.databinding.ActivityListFoodBinding;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,10 +27,11 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class ListFoodActivity extends AppCompatActivity {
+    ActivityListFoodBinding binding;
     ArrayList<Foods> lstFood = new ArrayList<>();
     CustomAdapterListFood adapterListFood;
     ImageButton btnBack;
-    TextView tvTitle;
+    TextView tvTitleA;
     RecyclerView rvListFood;
     private int categoryId;
     private String categoryName;
@@ -39,7 +41,8 @@ public class ListFoodActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_food);
+        binding = ActivityListFoodBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         addControl();
         getIntentExtra();
@@ -48,7 +51,7 @@ public class ListFoodActivity extends AppCompatActivity {
 
     void addControl() {
         btnBack = (ImageButton) findViewById(R.id.btnBack);
-        tvTitle = (TextView) findViewById(R.id.tvTitleA);
+        tvTitleA = (TextView) findViewById(R.id.tvTitleA);
         rvListFood = (RecyclerView) findViewById(R.id.rvListFood);
     }
 
@@ -58,8 +61,8 @@ public class ListFoodActivity extends AppCompatActivity {
         searchText = getIntent().getStringExtra("text");
         isSearch = getIntent().getBooleanExtra("isSearch", false);
 
-        tvTitle.setText(categoryName);
-        btnBack.setOnClickListener(new View.OnClickListener() {
+        binding.tvTitleA.setText(categoryName);
+        binding.btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
@@ -92,9 +95,9 @@ public class ListFoodActivity extends AppCompatActivity {
                 rvListFood.addItemDecoration(new DividerItemDecoration(ListFoodActivity.this, DividerItemDecoration.VERTICAL));
                 RecyclerView.LayoutManager layoutManager = new GridLayoutManager(ListFoodActivity.this, 2);
 
-                rvListFood.setLayoutManager(layoutManager);
-                rvListFood.setItemAnimator(new DefaultItemAnimator());
-                rvListFood.setAdapter(adapterListFood);
+                binding.rvListFood.setLayoutManager(layoutManager);
+                binding.rvListFood.setItemAnimator(new DefaultItemAnimator());
+                binding.rvListFood.setAdapter(adapterListFood);
             }
 
             @Override

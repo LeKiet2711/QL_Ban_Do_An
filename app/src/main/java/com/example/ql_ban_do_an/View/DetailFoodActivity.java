@@ -121,7 +121,6 @@ public class DetailFoodActivity extends AppCompatActivity {
         binding.tvRateDetail.setText(String.valueOf(foods.getStar()));
         double starValue = foods.getStar();
         binding.ratingBar.setRating((float) 4.5f);
-        float s = binding.ratingBar.getRating();
         binding.tvTotal.setText("$" + String.valueOf(foods.getPrice() * num));
         binding.tvDescription.setText(foods.getDescription());
         binding.tvDescription.setMovementMethod(new ScrollingMovementMethod());

@@ -97,7 +97,7 @@ public class ListFoodActivity extends AppCompatActivity {
 
                 binding.rvListFood.setLayoutManager(layoutManager);
                 binding.rvListFood.setItemAnimator(new DefaultItemAnimator());
-                rvListFood.setAdapter(adapterListFood);
+                binding.rvListFood.setAdapter(adapterListFood);
             }
 
             @Override

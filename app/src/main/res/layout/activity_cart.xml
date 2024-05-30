@@ -18,8 +18,11 @@
         tools:srcCompat="@drawable/arrow" />
 
     <ScrollView
+        android:id="@+id/scrollviewCart"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="15dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -40,8 +43,8 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/cartView"
                 android:layout_width="match_parent"
-                android:clipToPadding="false"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent"
+                android:clipToPadding="false">
 
             </androidx.recyclerview.widget.RecyclerView>
 
@@ -57,10 +60,10 @@
                     android:layout_height="40dp"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:textSize="14dp"
-                    android:textAlignment="center"
+                    android:hint="Nhập mã khuyến mãi"
                     android:inputType="text"
-                    android:hint="Nhập mã khuyến mãi"/>
+                    android:textAlignment="center"
+                    android:textSize="14dp" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/button"
@@ -69,8 +72,8 @@
                     android:layout_height="42dp"
                     android:layout_weight="1"
                     android:background="@drawable/color_button_background"
-                    android:textColor="@color/white"
-                    android:text="Xác nhận" />
+                    android:text="Xác nhận"
+                    android:textColor="@color/white" />
 
             </LinearLayout>
 
@@ -78,11 +81,11 @@
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textSize="18dp"
-                android:textStyle="bold"
                 android:layout_marginTop="15dp"
-                android:text="Sản Phẩm" />
+                android:layout_weight="1"
+                android:text="Sản Phẩm"
+                android:textSize="18dp"
+                android:textStyle="bold" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -125,7 +128,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
                 <TextView
-                    android:id="@+id/textView7"
+                    android:id="@+id/txtTotalFee"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -137,26 +140,26 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/textView8"
+                    android:id="@+id/txtDelivery"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="$-"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="@+id/textView7"
-                    app:layout_constraintTop_toBottomOf="@+id/textView7" />
+                    app:layout_constraintEnd_toEndOf="@+id/txtTotalFee"
+                    app:layout_constraintTop_toBottomOf="@+id/txtTotalFee" />
 
                 <TextView
-                    android:id="@+id/textView9"
+                    android:id="@+id/txtTax"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="$-"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="@+id/textView8"
-                    app:layout_constraintTop_toBottomOf="@+id/textView8" />
+                    app:layout_constraintEnd_toEndOf="@+id/txtDelivery"
+                    app:layout_constraintTop_toBottomOf="@+id/txtDelivery" />
 
                 <View
                     android:id="@+id/view"
@@ -185,7 +188,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/view" />
 
                 <TextView
-                    android:id="@+id/textView11"
+                    android:id="@+id/txtTotal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -193,21 +196,31 @@
                     android:textColor="#292525"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="@+id/textView9"
+                    app:layout_constraintEnd_toEndOf="@+id/txtTax"
                     app:layout_constraintTop_toBottomOf="@+id/view" />
+
+                <TextView
+                    android:id="@+id/txtEmpty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Giỏ hàng trống"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="@+id/txtTax"
+                    app:layout_constraintStart_toStartOf="@+id/textView6"
+                    tools:layout_editor_absoluteY="85dp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.appcompat.widget.AppCompatButton
-                style="@android:style/Widget.Button"
                 android:id="@+id/button2"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/color_button_background"
+                style="@android:style/Widget.Button"
                 android:layout_width="380dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/color_button_background"
+                android:text="Thanh Toán"
                 android:textColor="@color/white"
-                android:textSize="18sp"
-                android:text="Thanh Toán" />
+                android:textSize="18sp" />
 
         </LinearLayout>
     </ScrollView>

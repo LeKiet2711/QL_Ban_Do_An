@@ -74,11 +74,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:numStars="5"
             android:max="5"
+            android:numStars="5"
             android:stepSize="0.1"
-            android:progressTint="#FFEB3B"
-            android:rating="3.5" />
+            android:progressTint="#FFEB3B" />
 
         <TextView
             android:id="@+id/tvRateDetail"
@@ -100,8 +99,8 @@
 
         <ImageView
             android:id="@+id/imageView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_marginTop="5dp"
             android:layout_weight="1"
             app:srcCompat="@drawable/time"

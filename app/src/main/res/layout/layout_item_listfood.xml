@@ -49,8 +49,8 @@
 
                 <ImageView
                     android:id="@+id/imageView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginLeft="5dp"
                     app:srcCompat="@drawable/time" />
@@ -81,9 +81,9 @@
 
                 <ImageView
                     android:id="@+id/imageView3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginLeft="5dp"
                     app:srcCompat="@drawable/star" />
             </LinearLayout>

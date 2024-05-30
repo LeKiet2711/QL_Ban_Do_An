@@ -16,6 +16,8 @@ import com.example.ql_ban_do_an.Model.Foods;
 import com.example.ql_ban_do_an.R;
 import com.squareup.picasso.Picasso;
 
+import java.text.DecimalFormat;
+
 public class DetailFoodActivity extends AppCompatActivity {
 
     ImageButton btnBackDetail, btnFavourite;
@@ -55,7 +57,6 @@ public class DetailFoodActivity extends AppCompatActivity {
 
         ratingBar = (RatingBar) findViewById(R.id.ratingBar);
         ratingBar.setMax(5);
-        ratingBar.setNumStars(5);
     }
 
     void addEvent() {
@@ -116,7 +117,9 @@ public class DetailFoodActivity extends AppCompatActivity {
         tvTitleDetail.setText(foods.getTitle());
         tvPriceDetail.setText("$" + String.valueOf(foods.getPrice()));
         tvRateDetail.setText(String.valueOf(foods.getStar()));
-        ratingBar.setRating((float) foods.getStar());
+        double starValue = foods.getStar();
+        ratingBar.setRating((float) 4.5f);
+        float s = ratingBar.getRating();
         tvTotal.setText("$" + String.valueOf(foods.getPrice() * num));
         tvDescription.setText(foods.getDescription());
         tvDescription.setMovementMethod(new ScrollingMovementMethod());

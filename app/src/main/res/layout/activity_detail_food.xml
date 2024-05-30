@@ -47,7 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="TextView"
-            android:textColor="@color/black"
+            android:textColor="@color/blue_grey"
             android:textSize="12pt"
             android:textStyle="bold" />
 
@@ -55,7 +55,6 @@
             android:id="@+id/tvPriceDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:gravity="right"
             android:text="TextView"
             android:textColor="#FF5722"
@@ -69,14 +68,12 @@
         android:orientation="horizontal">
 
         <RatingBar
-            android:id="@+id/ratingBar"
             style="@style/Widget.AppCompat.RatingBar.Indicator"
+            android:id="@+id/ratingBar"
+            android:secondaryProgressTint="#FFEB3B"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:max="5"
-            android:numStars="5"
-            android:stepSize="0.1"
             android:progressTint="#FFEB3B" />
 
         <TextView
@@ -113,14 +110,15 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:text="Details"
-        android:textColor="@color/black"
+        android:textColor="@color/blue_grey"
         android:textSize="12pt"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tvDescription"
         android:layout_width="match_parent"
-        android:layout_height="240dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="5dp"
         android:text="TextView"
@@ -137,7 +135,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:text="Quantity"
-            android:textColor="@color/black"
+            android:textColor="@color/blue_grey"
             android:textSize="12pt"
             android:textStyle="bold" />
 
@@ -194,7 +192,7 @@
                 android:layout_height="wrap_content"
                 android:text="Total Price"
                 android:textSize="12pt"
-                android:textColor="@color/black"
+                android:textColor="@color/blue_grey"
                 android:textStyle="bold"
                 android:layout_marginLeft="10dp"/>
 

@@ -46,6 +46,7 @@ public class DetailFoodActivity extends AppCompatActivity {
         btnBackDetail = (ImageButton) findViewById(R.id.btnBackDetail);
         btnFavourite = (ImageButton) findViewById(R.id.btnFavourite);
         imgDetail = (ImageView) findViewById(R.id.imgDetail);
+        ratingBar = (RatingBar) findViewById(R.id.ratingBar);
         tvTitleDetail = (TextView) findViewById(R.id.tvTitleDetail);
         tvPriceDetail = (TextView) findViewById(R.id.tvPriceDetail);
         tvRateDetail = (TextView) findViewById(R.id.tvRateDetail);
@@ -56,20 +57,17 @@ public class DetailFoodActivity extends AppCompatActivity {
         tvPlus = (TextView) findViewById(R.id.tvPlus);
         tvTotal = (TextView) findViewById(R.id.tvTotal);
         btnAdd = (AppCompatButton) findViewById(R.id.btnAdd);
-
-        ratingBar = (RatingBar) findViewById(R.id.ratingBar);
-        ratingBar.setMax(5);
     }
 
     void addEvent() {
-        btnBackDetail.setOnClickListener(new View.OnClickListener() {
+        binding.btnBackDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
         });
 
-        tvMinus.setOnClickListener(new View.OnClickListener() {
+        binding.tvMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int n = Integer.parseInt(tvNum.getText().toString());
@@ -82,7 +80,7 @@ public class DetailFoodActivity extends AppCompatActivity {
             }
         });
 
-        tvPlus.setOnClickListener(new View.OnClickListener() {
+        binding.tvPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int n = Integer.parseInt(tvNum.getText().toString());
@@ -118,12 +116,14 @@ public class DetailFoodActivity extends AppCompatActivity {
         binding.tvTitleDetail.setText(foods.getTitle());
         binding.tvPriceDetail.setText("$" + String.valueOf(foods.getPrice()));
         binding.tvRateDetail.setText(String.valueOf(foods.getStar()));
-        double starValue = foods.getStar();
-        binding.ratingBar.setRating((float) 4.5f);
-        float s = binding.ratingBar.getRating();
         binding.tvTotal.setText("$" + String.valueOf(foods.getPrice() * num));
         binding.tvDescription.setText(foods.getDescription());
         binding.tvDescription.setMovementMethod(new ScrollingMovementMethod());
         binding.tvTimeDetail.setText(String.valueOf(foods.getTimeValue()) + " min");
+
+        binding.ratingBar.setMax(4);
+        binding.ratingBar.setNumStars(4);
+        binding.ratingBar.setStepSize(0.1f);
+        binding.ratingBar.setRating((float) foods.getStar() - 1);
     }
 }

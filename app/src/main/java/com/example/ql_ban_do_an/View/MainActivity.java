@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -75,9 +76,13 @@ public class MainActivity extends AppCompatActivity{
         initPrice();
         initBestFood();
         initCategory();
-
-
+        setVariable();
     }
+
+    private void setVariable(){
+        binding.giohangBtn.setOnClickListener(v -> startActivity(new Intent(MainActivity.this,CartActivity.class)));
+    }
+
     private void initCategory() {
         FirebaseDatabase database = FirebaseDatabase.getInstance("https://qlbandoan-6f252-default-rtdb.asia-southeast1.firebasedatabase.app/");
         DatabaseReference myRef = database.getReference("Category");

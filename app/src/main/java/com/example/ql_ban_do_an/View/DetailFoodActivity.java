@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
+import com.example.ql_ban_do_an.Helper.ManagmentCart;
 import com.example.ql_ban_do_an.Model.Foods;
 import com.example.ql_ban_do_an.R;
 import com.example.ql_ban_do_an.databinding.ActivityDetailFoodBinding;
@@ -21,6 +22,7 @@ import java.text.DecimalFormat;
 
 public class DetailFoodActivity extends AppCompatActivity {
     ActivityDetailFoodBinding binding;
+    private ManagmentCart managmentCart;
     ImageButton btnBackDetail, btnFavourite;
     ImageView imgDetail;
     RatingBar ratingBar;
@@ -60,6 +62,7 @@ public class DetailFoodActivity extends AppCompatActivity {
     }
 
     void addEvent() {
+        managmentCart=new ManagmentCart(this);
         binding.btnBackDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -88,6 +91,14 @@ public class DetailFoodActivity extends AppCompatActivity {
                 num = n;
                 tvNum.setText(String.valueOf(n));
                 tvTotal.setText("$" + String.valueOf(foods.getPrice() * num));
+            }
+        });
+
+        binding.btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                foods.setNumberInCart(num);
+                managmentCart.insertFood(foods);
             }
         });
     }

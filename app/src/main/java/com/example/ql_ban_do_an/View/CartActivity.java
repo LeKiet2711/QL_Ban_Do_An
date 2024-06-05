@@ -8,6 +8,8 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.ql_ban_do_an.Controller.CartAdapter;
+import com.example.ql_ban_do_an.Helper.ChangeNumberItemsListener;
 import com.example.ql_ban_do_an.Helper.ManagmentCart;
 import com.example.ql_ban_do_an.R;
 import com.example.ql_ban_do_an.databinding.ActivityCartBinding;
@@ -24,6 +26,8 @@ public class CartActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         managementCart=new ManagmentCart(this);
+
+        setVariable();
         caculateCart();
         initList();
     }
@@ -38,7 +42,8 @@ public class CartActivity extends AppCompatActivity {
         }
         LinearLayoutManager linearlayoutManager=new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
         binding.cartView.setLayoutManager(linearlayoutManager);
-
+        adapter=new CartAdapter(managementCart.getListCart(), this, () -> caculateCart());
+        binding.cartView.setAdapter(adapter);
     }
 
     private void caculateCart(){
@@ -52,6 +57,10 @@ public class CartActivity extends AppCompatActivity {
         binding.txtTax.setText("$"+tax);
         binding.txtDelivery.setText("$"+delivery);
         binding.txtTotal.setText("$"+total);
+    }
+
+    private void setVariable(){
+        binding.backBtn.setOnClickListener(v -> finish());
     }
 
 }

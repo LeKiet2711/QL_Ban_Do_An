@@ -141,8 +141,9 @@
 
         <TextView
             android:id="@+id/tvMinus"
-            android:layout_width="wrap_content"
+            android:layout_width="40dp"
             android:layout_height="wrap_content"
+            android:background="@drawable/edittext_background"
             android:layout_marginLeft="30dp"
             android:gravity="center"
             android:text="-"
@@ -161,10 +162,11 @@
 
         <TextView
             android:id="@+id/tvPlus"
-            android:layout_width="wrap_content"
+            android:layout_width="40dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:gravity="center"
+            android:background="@drawable/edittext_background"
             android:text="+"
             android:textColor="#FF5722"
             android:textSize="12pt"

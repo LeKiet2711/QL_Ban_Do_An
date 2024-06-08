@@ -1,21 +1,18 @@
 package com.example.ql_ban_do_an.View;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.ql_ban_do_an.R;
 import com.example.ql_ban_do_an.databinding.ActivitySignupBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 
-public class SignupActivity extends BasicActivity {
+public class SignupActivity extends BaseActivity {
 
     ActivitySignupBinding binding;
     private String TAG= "CUAHANGDOAN";

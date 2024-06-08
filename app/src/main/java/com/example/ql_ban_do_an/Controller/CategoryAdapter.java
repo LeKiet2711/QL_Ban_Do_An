@@ -76,7 +76,12 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.viewho
             case 7:{
                 viewholder.pic.setBackgroundResource(R.drawable.cat_7_background);
                 break;
+
             }
+            default: // Xử lý trường hợp mặc định và các trường hợp còn lại
+                viewholder.pic.setBackgroundResource(R.drawable.cat_7_background);
+                break;
+
         }
         String imagePath = items.get(i).getImagePath();
         if (imagePath != null && !imagePath.isEmpty()) {
@@ -86,11 +91,11 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.viewho
                 Picasso.with(context).load(drawableResouceId).into(viewholder.pic);
             } else {
                 // Hình ảnh không tồn tại trong resources:
-                viewholder.pic.setImageResource(R.drawable.btn_3); // Thay bằng một resource id ảnh placeholder thực tế
+                viewholder.pic.setImageResource(R.drawable.btn_9); // Thay bằng một resource id ảnh placeholder thực tế
             }
         } else {
             // Xử lý khi imagePath null hoặc rỗng
-            viewholder.pic.setImageResource(R.drawable.btn_5); // Thay bằng một resource id ảnh placeholder thực tế
+            viewholder.pic.setImageResource(R.drawable.btn_9); // Thay bằng một resource id ảnh placeholder thực tế
         }
 
         viewholder.itemView.setOnClickListener(new View.OnClickListener() {

@@ -2,6 +2,7 @@ package com.example.ql_ban_do_an.View;
 
 import androidx.annotation.NonNull;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,7 +16,6 @@ import com.google.firebase.auth.AuthResult;
 public class SignupActivity extends BaseActivity {
 
     ActivitySignupBinding binding;
-    private String TAG= "CUAHANGDOAN";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,29 +28,26 @@ public class SignupActivity extends BaseActivity {
     }
 
     private void setVariable(){
-        binding.loginBtn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String email = binding.edtUser.getText().toString();
-                String password = binding.edtPass.getText().toString();
-                if (password.length() < 6) {
-                    Toast.makeText(SignupActivity.this, "your password must be 6 character", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(SignupActivity.this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isComplete()){
-                            Log.i(TAG, "on Complete: ");
-
-                        }
-                        else {
-                            Log.i(TAG, "Failure: ",task.getException());
-                            Toast.makeText(SignupActivity.this, "Authentication Failure", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
+        binding.signupBtn.setOnClickListener(v -> {
+            String email = binding.edtUser.getText().toString();
+            String password = binding.edtPass.getText().toString();
+            if (password.length() < 6) {
+                Toast.makeText(SignupActivity.this, "your password must be 6 character", Toast.LENGTH_SHORT).show();
+                return;
             }
+            mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(SignupActivity.this, new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if(task.isComplete()){
+                        Log.i(TAG, "on Complete: ");
+                        startActivity(new Intent(SignupActivity.this,MainActivity.class));
+                    }
+                    else {
+                        Log.i(TAG, "Failure: ",task.getException());
+                        Toast.makeText(SignupActivity.this, "Authentication Failure", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
         });
     }
 

@@ -29,7 +29,7 @@ public class LoginActivity extends BaseActivity {
 
     }
     private void setVariable(){
-        binding.LoginBtn.setOnClickListener(new View.OnClickListener() {
+        binding.loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String email = binding.edtUser.getText().toString();

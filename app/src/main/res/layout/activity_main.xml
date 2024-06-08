@@ -42,7 +42,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/txtTotalFee" />
 
                 <ImageView
-                    android:id="@+id/imageView4"
+                    android:id="@+id/btnLogout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintBottom_toBottomOf="parent"

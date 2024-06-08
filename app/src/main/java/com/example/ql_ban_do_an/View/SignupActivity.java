@@ -28,7 +28,7 @@ public class SignupActivity extends BaseActivity {
     }
 
     private void setVariable(){
-        binding.BtnSignup.setOnClickListener(new View.OnClickListener() {
+        binding.loginBtn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String email = binding.edtUser.getText().toString();

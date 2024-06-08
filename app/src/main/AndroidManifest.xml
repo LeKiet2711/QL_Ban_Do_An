@@ -18,13 +18,13 @@
             android:name=".View.BasicActivity"
             android:exported="false" />
         <activity
-            android:name=".View.SignupActivity"
-            android:exported="false" />
-        <activity
             android:name=".View.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".View.IntroActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.SignupActivity"
             android:exported="false" />
         <activity
             android:name=".View.MainActivity"

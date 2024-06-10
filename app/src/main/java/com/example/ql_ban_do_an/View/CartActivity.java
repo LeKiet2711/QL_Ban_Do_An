@@ -79,9 +79,9 @@ public class CartActivity extends AppCompatActivity {
         double percentTax=0.02;
         double delivery=10;
 
-        tax=Math.round(managementCart.getTotalFee()*percentTax*100.0)/100;
-        double total=Math.round((managementCart.getTotalFee()+tax+delivery)*100)/100;
-        double itemTotal=Math.round(managementCart.getTotalFee()*100)/100;
+        tax=Math.round(managementCart.getTotalFee()*percentTax*100)/100.0;
+        double total=Math.round((managementCart.getTotalFee()+tax+delivery)*100)/100.0;
+        double itemTotal=Math.round(managementCart.getTotalFee()*100)/100.0;
         binding.txtTotalFee.setText("$"+itemTotal);
         binding.txtTax.setText("$"+tax);
         binding.txtDelivery.setText("$"+delivery);
@@ -127,8 +127,8 @@ public class CartActivity extends AppCompatActivity {
         double percentTax=0.02;
         double delivery=10;
 
-        tax=Math.round(managementCart.getTotalFee()*percentTax*100.0)/100;
-        double total=Math.round((managementCart.getTotalFee()+tax+delivery)*100)/100;
+        tax=Math.round(managementCart.getTotalFee()*percentTax*100)/100.0;
+        double total=Math.round((managementCart.getTotalFee()+tax+delivery)*100)/100.0;
         SharedPreferences sharedPreferences = getSharedPreferences("user_email", Context.MODE_PRIVATE);
         customerEmail = sharedPreferences.getString("customerEmail", "");
         // Tạo một đơn hàng mới

@@ -43,7 +43,7 @@ public class ManagmentCart {
 
     public Double getTotalFee(){
         ArrayList<Foods> listItem=getListCart();
-        double fee=0;
+        double fee=0.0;
         for (int i = 0; i < listItem.size(); i++) {
             fee=fee+(listItem.get(i).getPrice()*listItem.get(i).getNumberInCart());
         }

@@ -50,7 +50,7 @@ public class SignupActivity extends BaseActivity {
                 if (task.isComplete()) {
                     Log.i(TAG, "on Complete: ");
                     insertData();
-                    startActivity(new Intent(SignupActivity.this, MainActivity.class));
+                    startActivity(new Intent(SignupActivity.this, LoginActivity.class));
                 } else {
                     Log.i(TAG, "Failure: ", task.getException());
                     Toast.makeText(SignupActivity.this, "Authentication Failure", Toast.LENGTH_SHORT).show();

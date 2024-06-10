@@ -18,6 +18,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.ql_ban_do_an.Controller.BestFoodsAdapter;
 import com.example.ql_ban_do_an.Controller.CategoryAdapter;
@@ -55,8 +56,10 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Price> listPrice = new ArrayList<>();
     ArrayAdapter<String> adapter;
 
-    EditText edt;
-    ImageView btnLogout;
+    EditText edt,txtSearch;
+    ImageView btnLogout,timkiem_btn;
+    TextView tvNameCustomer;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +77,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         FirebaseApp.initializeApp(this);
+
+        tvNameCustomer.setText(" ");
 
         initLocation();
         initTime();
@@ -94,6 +99,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        timkiem_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ListFoodActivity.class);
+                intent.putExtra("text", txtSearch.getText().toString());
+                intent.putExtra("isSearch", true);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void initCategory() {
@@ -243,6 +258,10 @@ public class MainActivity extends AppCompatActivity {
         giaSP = (Spinner) findViewById(R.id.giaSP);
         bestFoodView = (RecyclerView) findViewById(R.id.bestFoodView);
         btnLogout = (ImageView) findViewById(R.id.btnLogout);
+        tvNameCustomer=(TextView) findViewById(R.id.tvNameCustomer);
+        timkiem_btn=(ImageView) findViewById(R.id.timkiem_btn);
+        txtSearch=(EditText) findViewById(R.id.txtSearch);
+
     }
 
     ArrayList<String> convertLocationListToArrString(ArrayList<Location> lstLocation) {

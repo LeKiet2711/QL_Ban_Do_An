@@ -77,7 +77,7 @@ public class ListFoodActivity extends AppCompatActivity {
         Query query;
 
         if (isSearch) {
-            query = myRef.orderByChild("Title").startAt(searchText).endAt(searchText + '\uf8ff');
+            query = myRef;
         } else {
             query = myRef.orderByChild("CategoryId").equalTo(categoryId);
         }
@@ -88,7 +88,13 @@ public class ListFoodActivity extends AppCompatActivity {
                 lstFood.clear();
                 for (DataSnapshot userSnapshot : snapshot.getChildren()) {
                     Foods food = userSnapshot.getValue(Foods.class);
-                    lstFood.add(food);
+                    if (isSearch) {
+                        if (food.getTitle().toLowerCase().contains(searchText.toLowerCase())) {
+                            lstFood.add(food);
+                        }
+                    } else {
+                        lstFood.add(food);
+                    }
                 }
 
                 adapterListFood = new CustomAdapterListFood(lstFood);

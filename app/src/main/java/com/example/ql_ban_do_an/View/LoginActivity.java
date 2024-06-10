@@ -3,7 +3,9 @@ package com.example.ql_ban_do_an.View;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -40,6 +42,10 @@ public class LoginActivity extends BaseActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
                                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                                SharedPreferences sharedPreferences = getSharedPreferences("user_email", Context.MODE_PRIVATE);
+                                SharedPreferences.Editor editor = sharedPreferences.edit();
+                                editor.putString("customerEmail", email);
+                                editor.apply();
                             }else {
                                 Toast.makeText(LoginActivity.this,"Authencation failed",Toast.LENGTH_SHORT).show();
                             }

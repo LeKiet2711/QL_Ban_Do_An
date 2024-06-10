@@ -40,7 +40,12 @@ public class ManagmentCart {
     public ArrayList<Foods> getListCart() {
         return tinyDB.getListObject("CartList");
     }
+    public ArrayList<Foods> resetListCart() {
 
+        ArrayList<Foods> emptyList = new ArrayList<>();
+        tinyDB.putListObject("CartList", emptyList);
+        return tinyDB.getListObject("CartList");
+    }
     public Double getTotalFee(){
         ArrayList<Foods> listItem=getListCart();
         double fee=0.0;

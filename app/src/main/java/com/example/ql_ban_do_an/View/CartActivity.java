@@ -42,7 +42,6 @@ public class CartActivity extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
 
     int idMax=0;
-    ArrayList<Foods>lsResetGioHang;
 
     private ManagmentCart managementCart;
     private double tax;
@@ -52,7 +51,7 @@ public class CartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding=ActivityCartBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        lsResetGioHang=new ArrayList<>();
+
         managementCart=new ManagmentCart(this);
 
         caculateCart();
@@ -146,8 +145,8 @@ public class CartActivity extends AppCompatActivity {
 
          .addOnSuccessListener(aVoid -> {
             Toast.makeText(getApplicationContext(),"Successful",Toast.LENGTH_LONG).show();
-            adapter=new CartAdapter(lsResetGioHang, this, () -> caculateCart());
-            binding.cartView.setAdapter(adapter);
+            adapter=new CartAdapter(managementCart.resetListCart(), this, () -> caculateCart());
+             binding.cartView.setAdapter(adapter);
              binding.txtTotalFee.setText("$0");
              binding.txtTax.setText("$0");
              binding.txtDelivery.setText("$0");

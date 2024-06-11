@@ -51,20 +51,20 @@ public class CartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding=ActivityCartBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         managementCart=new ManagmentCart(this);
-
         caculateCart();
         initList();
         setVariable();
-
     }
 
     private void initList(){
-
+        if(managementCart.getListCart().isEmpty()) {
+            binding.txtEmpty.setVisibility(View.VISIBLE);
+            binding.scrollviewCart.setVisibility(View.GONE);
+        }else{
             binding.txtEmpty.setVisibility(View.GONE);
             binding.scrollviewCart.setVisibility(View.VISIBLE);
-
+        }
 
         LinearLayoutManager linearlayoutManager=new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
         binding.cartView.setLayoutManager(linearlayoutManager);
@@ -75,7 +75,6 @@ public class CartActivity extends AppCompatActivity {
     private void caculateCart(){
         double percentTax=0.02;
         double delivery=10;
-
         tax=Math.round(managementCart.getTotalFee()*percentTax*100)/100.0;
         double total=Math.round((managementCart.getTotalFee()+tax+delivery)*100)/100.0;
         double itemTotal=Math.round(managementCart.getTotalFee()*100)/100.0;
@@ -86,12 +85,9 @@ public class CartActivity extends AppCompatActivity {
     }
 
     private void setVariable(){
-
         binding.backBtn.setOnClickListener(v -> finish());
         binding.btnThanhToan.setOnClickListener(v ->
            getNewCartIdAndPlaceOrder()
-
-
         );
     }
     private void getNewCartIdAndPlaceOrder() {
@@ -101,21 +97,16 @@ public class CartActivity extends AppCompatActivity {
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-
                 for (DataSnapshot bf : snapshot.getChildren()) {
                     Cart cart = bf.getValue(Cart.class);
                     if(cart!=null&&cart.getId()>idMax)
                         idMax=cart.getId();
-
                 }
                 placeOrder(idMax+1);
-
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                // Xử lý lỗi
+
             }
         });
     }
@@ -153,8 +144,6 @@ public class CartActivity extends AppCompatActivity {
                 .addOnFailureListener(e -> {
                     Toast.makeText(getApplicationContext(),"Failed",Toast.LENGTH_LONG).show();
                 });
-
-
     }
 
 

@@ -11,6 +11,7 @@ public class Cart {
     private boolean status;
     private String time;
     private double totalPrice;
+
     public Cart() {
     }
 

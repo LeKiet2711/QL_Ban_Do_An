@@ -5,6 +5,7 @@ public class Location {
 
     private int Id;
     private String Loc;
+
     public Location(int id, String loc) {
         Id = id;
         Loc = loc;
@@ -12,6 +13,7 @@ public class Location {
 
     public Location() {
     }
+
     public int getId() {
         return Id;
     }

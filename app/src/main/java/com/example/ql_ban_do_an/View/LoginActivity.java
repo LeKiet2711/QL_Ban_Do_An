@@ -57,7 +57,6 @@ public class LoginActivity extends BaseActivity {
                 }
             }
         });
-
         binding.edtSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

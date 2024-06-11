@@ -6,6 +6,7 @@ public class Customer {
 
     public Customer() {
     }
+
     public Customer(int id, String address, String email, String name, String phone) {
         Id = id;
         Address = address;

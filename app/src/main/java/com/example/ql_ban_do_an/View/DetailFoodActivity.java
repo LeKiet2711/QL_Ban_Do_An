@@ -31,7 +31,6 @@ public class DetailFoodActivity extends AppCompatActivity {
     Foods foods;
     private ManagmentCart managmentCart;
     private int num = 1;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

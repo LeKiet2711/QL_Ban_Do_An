@@ -15,7 +15,6 @@ public class Foods {
     private int TimeValue;
 
     public Foods() {
-
     }
 
     public int getTimeId() {

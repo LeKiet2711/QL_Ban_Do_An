@@ -22,7 +22,6 @@ public class IntroActivity extends BaseActivity {
         setVariable();
         getWindow().setStatusBarColor(Color.parseColor("#FFE485"));
     }
-
     private void setVariable() {
         binding.loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override

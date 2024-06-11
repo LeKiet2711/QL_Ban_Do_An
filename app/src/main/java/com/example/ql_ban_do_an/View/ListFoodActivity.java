@@ -69,7 +69,6 @@ public class ListFoodActivity extends AppCompatActivity {
             }
         });
     }
-
     void getDataFromFirebase() {
         FirebaseDatabase database = FirebaseDatabase.getInstance("https://qlbandoan-6f252-default-rtdb.asia-southeast1.firebasedatabase.app");
         DatabaseReference myRef = database.getReference("Foods");

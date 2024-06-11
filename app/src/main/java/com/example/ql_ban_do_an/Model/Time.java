@@ -3,8 +3,10 @@ package com.example.ql_ban_do_an.Model;
 public class Time {
     private int Id;
     private String Value;
+
     public Time() {
     }
+
     public Time(int id) {
         Id = id;
     }

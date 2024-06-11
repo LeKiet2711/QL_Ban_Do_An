@@ -83,7 +83,6 @@ public class CartActivity extends AppCompatActivity {
         binding.txtDelivery.setText("$"+delivery);
         binding.txtTotal.setText("$"+total);
     }
-
     private void setVariable(){
         binding.backBtn.setOnClickListener(v -> finish());
         binding.btnThanhToan.setOnClickListener(v ->

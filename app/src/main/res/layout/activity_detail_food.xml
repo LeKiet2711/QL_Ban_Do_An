@@ -10,7 +10,6 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="250dp">
-
         <ImageButton
             android:id="@+id/btnBackDetail"
             android:layout_width="wrap_content"

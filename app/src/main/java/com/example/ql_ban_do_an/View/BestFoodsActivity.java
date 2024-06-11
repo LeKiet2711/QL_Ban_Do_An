@@ -33,6 +33,7 @@ public class BestFoodsActivity extends AppCompatActivity {
     CustomAdapterListFood adapter;
     ImageButton btnBackMain;
     RecyclerView rvBestFood;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

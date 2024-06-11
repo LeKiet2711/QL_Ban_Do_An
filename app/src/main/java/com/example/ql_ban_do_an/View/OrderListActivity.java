@@ -56,6 +56,7 @@ public class OrderListActivity extends AppCompatActivity {
             }
         });
     }
+
     private void setupRecyclerView() {
         orderListAdapter = new OrderAdapter(orderList);
         rvOrderList.setLayoutManager(new LinearLayoutManager(this));

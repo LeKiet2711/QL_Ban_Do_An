@@ -36,6 +36,7 @@ public class SignupActivity extends BaseActivity {
         getDataFromFireBase();
         setVariable();
     }
+
     private void setVariable() {
         binding.signupBtn.setOnClickListener(v -> {
             String email = binding.edtUser.getText().toString();

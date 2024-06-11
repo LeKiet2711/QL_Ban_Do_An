@@ -58,7 +58,6 @@
         android:layout_height="wrap_content"
         android:text="Thuế: "
         android:textSize="16sp" />
-
     <TextView
         android:id="@+id/tvOrderDetailFee"
         android:layout_width="wrap_content"

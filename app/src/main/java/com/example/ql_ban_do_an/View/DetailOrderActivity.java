@@ -38,6 +38,7 @@ public class DetailOrderActivity extends AppCompatActivity {
     private CustomAdapterDetailOrder adapter;
     private ArrayList<Foods> foodItemList; // Retrieve this list based on the order id
     private Cart order;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

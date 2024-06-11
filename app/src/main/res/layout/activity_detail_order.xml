@@ -21,13 +21,13 @@
             android:id="@+id/textView11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="Chi tiết đơn hàng"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@color/blue_grey"
             android:layout_gravity="center"
-            android:gravity="center" />
+            android:layout_marginStart="10dp"
+            android:gravity="center"
+            android:text="Chi tiết đơn hàng"
+            android:textColor="@color/blue_grey"
+            android:textSize="20sp"
+            android:textStyle="bold" />
     </FrameLayout>
 
     <TextView
@@ -58,6 +58,7 @@
         android:layout_height="wrap_content"
         android:text="Thuế: "
         android:textSize="16sp" />
+
     <TextView
         android:id="@+id/tvOrderDetailFee"
         android:layout_width="wrap_content"

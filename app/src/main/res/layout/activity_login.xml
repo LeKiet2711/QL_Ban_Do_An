@@ -111,6 +111,7 @@
                     android:text="You aren't a user? "
                     android:textColor="@color/blue_grey"
                     android:textSize="18sp" />
+
                 <TextView
                     android:id="@+id/edtSignUp"
                     android:layout_width="wrap_content"

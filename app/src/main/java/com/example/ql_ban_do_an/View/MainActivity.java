@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.ql_ban_do_an.Controller.BestFoodsAdapter;
 import com.example.ql_ban_do_an.Controller.CategoryAdapter;
@@ -43,7 +44,6 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
     //ListView lvKq;
-    Spinner vitriSP, timeSP, giaSP;
     RecyclerView bestFoodView;
     //ArrayList<Foods> lstFood = new ArrayList<>();
     ArrayList<String> lsDataTime = new ArrayList<>();
@@ -56,9 +56,9 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Price> listPrice = new ArrayList<>();
     ArrayAdapter<String> adapter;
 
-    EditText edt, txtSearch;
-    ImageView btnLogout, timkiem_btn, btn_order;
-    TextView tvNameCustomer, tvBestFoods;
+    EditText edt,txtSearch;
+    ImageView btnLogout,timkiem_btn,btn_order;
+    TextView tvNameCustomer;
 
 
     @Override
@@ -80,9 +80,6 @@ public class MainActivity extends AppCompatActivity {
 
         tvNameCustomer.setText(" ");
 
-        initLocation();
-        initTime();
-        initPrice();
         initBestFood();
         initCategory();
         setVariable();
@@ -117,13 +114,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        binding.tvBestFoods.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, BestFoodsActivity.class);
-                startActivity(intent);
-            }
-        });
+
     }
 
     private void initCategory() {
@@ -185,127 +176,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void initLocation() {
-        FirebaseDatabase database = FirebaseDatabase.getInstance("https://qlbandoan-6f252-default-rtdb.asia-southeast1.firebasedatabase.app/");
-        DatabaseReference myRef = database.getReference("Location");
-
-
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                listLocation.clear();
-                for (DataSnapshot locationSnapshot : dataSnapshot.getChildren()) {
-                    Location location = locationSnapshot.getValue(Location.class);
-                    listLocation.add(location);
-                }
-                lsDataLocation = convertLocationListToArrString(listLocation);
-                adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, lsDataLocation);
-                binding.vitriSP.setAdapter(adapter);
-
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-    }
-
-    private void initTime() {
-        FirebaseDatabase database = FirebaseDatabase.getInstance("https://qlbandoan-6f252-default-rtdb.asia-southeast1.firebasedatabase.app/");
-        DatabaseReference myRef = database.getReference("Time");
-
-
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                listTime.clear();
-                for (DataSnapshot timeSnapshot : dataSnapshot.getChildren()) {
-                    Time t = timeSnapshot.getValue(Time.class);
-                    listTime.add(t);
-                }
-                lsDataTime = convertTimeListToArrString(listTime);
-                adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, lsDataTime);
-                binding.timeSP.setAdapter(adapter);
-
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-    }
-
-    private void initPrice() {
-        FirebaseDatabase database = FirebaseDatabase.getInstance("https://qlbandoan-6f252-default-rtdb.asia-southeast1.firebasedatabase.app/");
-        DatabaseReference myRef = database.getReference("Price");
-
-
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                listPrice.clear();
-                for (DataSnapshot priceSnapshot : dataSnapshot.getChildren()) {
-                    Price price = priceSnapshot.getValue(Price.class);
-                    listPrice.add(price);
-                }
-                lsDataPrice = convertPriceListToArrString(listPrice);
-                adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, lsDataPrice);
-                binding.giaSP.setAdapter(adapter);
-
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-    }
 
     public void addControls() {
         // lvKq = (ListView) findViewById(R.id.lvKq);
-        vitriSP = (Spinner) findViewById(R.id.vitriSP);
-        timeSP = (Spinner) findViewById(R.id.timeSP);
-        giaSP = (Spinner) findViewById(R.id.giaSP);
+
         bestFoodView = (RecyclerView) findViewById(R.id.bestFoodView);
         btnLogout = (ImageView) findViewById(R.id.btnLogout);
-        tvNameCustomer = (TextView) findViewById(R.id.tvNameCustomer);
-        timkiem_btn = (ImageView) findViewById(R.id.timkiem_btn);
-        btn_order = (ImageView) findViewById(R.id.btnOrder);
-        txtSearch = (EditText) findViewById(R.id.txtSearch);
-        tvBestFoods = (TextView) findViewById(R.id.tvBestFoods);
+        tvNameCustomer=(TextView) findViewById(R.id.tvNameCustomer);
+        timkiem_btn=(ImageView) findViewById(R.id.timkiem_btn);
+        btn_order=(ImageView) findViewById(R.id.btnOrder);
+        txtSearch=(EditText) findViewById(R.id.txtSearch);
+
     }
 
-    ArrayList<String> convertLocationListToArrString(ArrayList<Location> lstLocation) {
-        ArrayList<String> lsString = new ArrayList<>();
-        for (Location f : lstLocation) {
-            String s = "Location: " + f.getLoc();
-            lsString.add(s);
-        }
-        return lsString;
-    }
 
-    ArrayList<String> convertTimeListToArrString(ArrayList<Time> lstTime) {
-        ArrayList<String> lsString = new ArrayList<>();
-        for (Time f : lstTime) {
-            String s = f.getValue();
-            lsString.add(s);
-        }
-        return lsString;
-    }
-
-    ArrayList<String> convertPriceListToArrString(ArrayList<Price> lstPrice) {
-        ArrayList<String> lsString = new ArrayList<>();
-        for (Price f : lstPrice) {
-            String s = f.getValue();
-            lsString.add(s);
-        }
-        return lsString;
-    }
 
 
 }

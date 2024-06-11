@@ -1,18 +1,19 @@
 package com.example.ql_ban_do_an.Model;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Cart {
     private int id;
     private String email;
-    private List<Foods> listFood;
+    private ArrayList<Foods> listFood;
     private boolean status;
     private String time;
     private double totalPrice;
     public Cart(){}
 
-    public Cart(int id, String email, List<Foods> listFood, boolean status, String time, double totalPrice) {
+    public Cart(int id, String email, ArrayList<Foods> listFood, boolean status, String time, double totalPrice) {
         this.id = id;
         this.email = email;
         this.listFood = listFood;
@@ -38,15 +39,15 @@ public class Cart {
         this.email = email;
     }
 
-    public List<Foods> getListFood() {
+    public ArrayList<Foods> getListFood() {
         return listFood;
     }
 
-    public void setListFood(List<Foods> listFood) {
+    public void setListFood(ArrayList<Foods> listFood) {
         this.listFood = listFood;
     }
 
-    public boolean isStatus() {
+    public boolean getStatus() {
         return status;
     }
 

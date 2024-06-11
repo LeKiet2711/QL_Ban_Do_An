@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayAdapter<String> adapter;
 
     EditText edt,txtSearch;
-    ImageView btnLogout,timkiem_btn;
+    ImageView btnLogout,timkiem_btn,btn_order;
     TextView tvNameCustomer;
 
 
@@ -105,6 +105,14 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, ListFoodActivity.class);
                 intent.putExtra("text", txtSearch.getText().toString());
                 intent.putExtra("isSearch", true);
+                startActivity(intent);
+            }
+        });
+        btn_order.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, OrderListActivity.class);
+
                 startActivity(intent);
             }
         });
@@ -260,6 +268,7 @@ public class MainActivity extends AppCompatActivity {
         btnLogout = (ImageView) findViewById(R.id.btnLogout);
         tvNameCustomer=(TextView) findViewById(R.id.tvNameCustomer);
         timkiem_btn=(ImageView) findViewById(R.id.timkiem_btn);
+        btn_order=(ImageView) findViewById(R.id.btnOrder);
         txtSearch=(EditText) findViewById(R.id.txtSearch);
 
     }

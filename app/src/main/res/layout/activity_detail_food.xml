@@ -24,14 +24,6 @@
             android:layout_height="200dp"
             tools:srcCompat="@tools:sample/avatars" />
 
-        <ImageButton
-            android:id="@+id/btnFavourite"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:backgroundTint="#00FFFFFF"
-            android:src="@drawable/favorite_white" />
-
     </FrameLayout>
 
     <LinearLayout

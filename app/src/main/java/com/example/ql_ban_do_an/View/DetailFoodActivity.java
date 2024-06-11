@@ -22,7 +22,7 @@ import java.text.DecimalFormat;
 
 public class DetailFoodActivity extends AppCompatActivity {
     ActivityDetailFoodBinding binding;
-    ImageButton btnBackDetail, btnFavourite;
+    ImageButton btnBackDetail;
     ImageView imgDetail;
     RatingBar ratingBar;
     TextView tvTitleDetail, tvPriceDetail, tvRateDetail, tvTimeDetail, tvDescription, tvMinus;
@@ -46,7 +46,6 @@ public class DetailFoodActivity extends AppCompatActivity {
 
     void addControl() {
         btnBackDetail = (ImageButton) findViewById(R.id.btnBackDetail);
-        btnFavourite = (ImageButton) findViewById(R.id.btnFavourite);
         imgDetail = (ImageView) findViewById(R.id.imgDetail);
         ratingBar = (RatingBar) findViewById(R.id.ratingBar);
         tvTitleDetail = (TextView) findViewById(R.id.tvTitleDetail);

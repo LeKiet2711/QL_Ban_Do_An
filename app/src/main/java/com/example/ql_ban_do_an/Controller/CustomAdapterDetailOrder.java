@@ -20,7 +20,6 @@ import java.util.List;
 public class CustomAdapterDetailOrder extends RecyclerView.Adapter<CustomAdapterDetailOrder.OrderDetailViewHolder> {
     Context context;
     private List<Foods> foodItemList;
-
     public CustomAdapterDetailOrder(List<Foods> foodItemList) {
         this.foodItemList = foodItemList;
     }

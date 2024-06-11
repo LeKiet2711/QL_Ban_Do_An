@@ -51,7 +51,6 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.viewHolder> 
             trangThai = "Đang chờ";
             holder.tvStatus.setTextColor(ContextCompat.getColor(context, R.color.red));
         }
-
         holder.tvStatus.setText("Trạng thái:" + trangThai);
         holder.tvOrderDate.setText("Thời gian: " + order.getTime());
         holder.tvTotalAmount.setText("Tổng tiền: $" + String.valueOf(order.getTotalPrice()));

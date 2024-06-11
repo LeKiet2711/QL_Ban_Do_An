@@ -2,6 +2,7 @@ package com.example.ql_ban_do_an.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,6 +10,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,14 +23,26 @@ import com.google.firebase.auth.AuthResult;
 public class LoginActivity extends BaseActivity {
 
     ActivityLoginBinding binding;
+    TextView tvSignUp;
+    EditText edtUser, edtPass;
+    AppCompatButton loginBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        addControl();
         setVariable();
 
+    }
+
+    void addControl() {
+        tvSignUp = (TextView) findViewById(R.id.tvSignUp);
+        edtUser = (EditText) findViewById(R.id.edtUser);
+        edtPass = (EditText) findViewById(R.id.edtPass);
+        loginBtn = (AppCompatButton) findViewById(R.id.loginBtn);
     }
 
     private void setVariable() {
@@ -58,7 +72,7 @@ public class LoginActivity extends BaseActivity {
             }
         });
 
-        binding.edtSignUp.setOnClickListener(new View.OnClickListener() {
+        binding.tvSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this, SignupActivity.class);

@@ -191,7 +191,7 @@ public class MainActivity extends AppCompatActivity {
         timkiem_btn = (ImageView) findViewById(R.id.timkiem_btn);
         btn_order = (ImageView) findViewById(R.id.btnOrder);
         txtSearch = (EditText) findViewById(R.id.txtSearch);
-
+        tvBestFoods = (TextView) findViewById(R.id.tvBestFoods);
     }
 
 

@@ -113,7 +113,7 @@
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/edtSignUp"
+                    android:id="@+id/tvSignUp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Sign up"

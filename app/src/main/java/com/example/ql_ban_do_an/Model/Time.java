@@ -5,7 +5,6 @@ public class Time {
     private String Value;
     public Time() {
     }
-
     public Time(int id) {
         Id = id;
     }

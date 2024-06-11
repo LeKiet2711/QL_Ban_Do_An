@@ -5,7 +5,6 @@ public class Price {
     private String Value;
     public Price() {
     }
-
     public Price(int id) {
         Id = id;
     }

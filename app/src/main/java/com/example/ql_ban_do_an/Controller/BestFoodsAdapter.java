@@ -22,6 +22,7 @@ import java.util.ArrayList;
 public class BestFoodsAdapter extends RecyclerView.Adapter<BestFoodsAdapter.viewholder> {
     ArrayList<Foods> items;
     Context context;
+
     public BestFoodsAdapter(ArrayList<Foods> items) {
         this.items = items;
     }

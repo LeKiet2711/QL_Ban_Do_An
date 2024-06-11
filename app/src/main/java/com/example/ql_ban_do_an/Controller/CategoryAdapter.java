@@ -23,6 +23,7 @@ import java.util.ArrayList;
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.viewholder> {
     ArrayList<Category> items;
     Context context;
+
     public CategoryAdapter(ArrayList<Category> items) {
         this.items = items;
     }

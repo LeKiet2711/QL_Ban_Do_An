@@ -41,6 +41,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.viewholder> {
         View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_cart, parent, false);
         return new viewholder(inflate);
     }
+
     @Override
     public void onBindViewHolder(@NonNull CartAdapter.viewholder holder, int position) {
         holder.title.setText(list.get(position).getTitle());

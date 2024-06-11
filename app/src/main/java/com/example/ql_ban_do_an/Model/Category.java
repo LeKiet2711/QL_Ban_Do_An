@@ -14,7 +14,6 @@ public class Category {
     public Category() {
 
     }
-
     public int getId() {
         return Id;
     }

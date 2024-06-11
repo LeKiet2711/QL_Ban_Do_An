@@ -11,7 +11,6 @@ public class Foods {
     private double Star;
     private String Title;
     private int numberInCart;
-
     private int TimeId;
     private int TimeValue;
 

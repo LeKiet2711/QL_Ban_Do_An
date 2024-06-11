@@ -25,6 +25,7 @@ public class CustomAdapterListFood extends RecyclerView.Adapter<CustomAdapterLis
     ArrayList<Foods> lstFood = new ArrayList<>();
     Context context;
     private OnItemClickListener itemClickListener;
+
     public CustomAdapterListFood(ArrayList<Foods> lstFood) {
         this.lstFood = lstFood;
     }

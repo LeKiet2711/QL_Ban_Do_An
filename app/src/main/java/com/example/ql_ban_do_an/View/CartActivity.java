@@ -50,6 +50,7 @@ public class CartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityCartBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
         managementCart = new ManagmentCart(this);
         caculateCart();
         initList();
@@ -57,10 +58,10 @@ public class CartActivity extends AppCompatActivity {
     }
 
     private void initList() {
-        if (managementCart.getListCart().isEmpty()) {
+        if(managementCart.getListCart().isEmpty()) {
             binding.txtEmpty.setVisibility(View.VISIBLE);
             binding.scrollviewCart.setVisibility(View.GONE);
-        } else {
+        }else{
             binding.txtEmpty.setVisibility(View.GONE);
             binding.scrollviewCart.setVisibility(View.VISIBLE);
         }
@@ -74,9 +75,11 @@ public class CartActivity extends AppCompatActivity {
     private void caculateCart() {
         double percentTax = 0.02;
         double delivery = 10;
+
         tax = Math.round(managementCart.getTotalFee() * percentTax * 100) / 100.0;
         double total = Math.round((managementCart.getTotalFee() + tax + delivery) * 100) / 100.0;
         double itemTotal = Math.round(managementCart.getTotalFee() * 100) / 100.0;
+
         binding.txtTotalFee.setText("$" + itemTotal);
         binding.txtTax.setText("$" + tax);
         binding.txtDelivery.setText("$" + delivery);

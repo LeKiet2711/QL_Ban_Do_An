@@ -11,7 +11,9 @@ public class Cart {
     private boolean status;
     private String time;
     private double totalPrice;
-    public Cart(){}
+
+    public Cart() {
+    }
 
     public Cart(int id, String email, ArrayList<Foods> listFood, boolean status, String time, double totalPrice) {
         this.id = id;

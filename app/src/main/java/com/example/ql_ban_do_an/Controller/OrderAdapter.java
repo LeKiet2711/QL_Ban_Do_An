@@ -24,9 +24,9 @@ import com.example.ql_ban_do_an.View.ListFoodActivity;
 import java.util.List;
 
 public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.viewHolder> {
+    Context context;
     private List<Cart> orderList;
 
-    Context context;
     public OrderAdapter(List<Cart> orderList) {
         this.orderList = orderList;
     }
@@ -34,7 +34,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.viewHolder> 
     @NonNull
     @Override
     public viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        context=parent.getContext();
+        context = parent.getContext();
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_item_list_order, parent, false);
         return new viewHolder(view);
     }
@@ -42,8 +42,8 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.viewHolder> 
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
         Cart order = orderList.get(position);
-        holder.tvOrderId.setText("Mã đơn hàng:"+String.valueOf(order.getId()));
-        String trangThai="";
+        holder.tvOrderId.setText("Mã đơn hàng:" + String.valueOf(order.getId()));
+        String trangThai = "";
         if (order.getStatus()) {
             trangThai = "Đã duyệt";
             holder.tvStatus.setTextColor(ContextCompat.getColor(context, R.color.green));
@@ -52,9 +52,9 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.viewHolder> 
             holder.tvStatus.setTextColor(ContextCompat.getColor(context, R.color.red));
         }
 
-        holder.tvStatus.setText("Trạng thái:"+trangThai);
-        holder.tvOrderDate.setText("Thời gian: "+order.getTime());
-        holder.tvTotalAmount.setText("Tổng tiền: $"+String.valueOf(order.getTotalPrice()));
+        holder.tvStatus.setText("Trạng thái:" + trangThai);
+        holder.tvOrderDate.setText("Thời gian: " + order.getTime());
+        holder.tvTotalAmount.setText("Tổng tiền: $" + String.valueOf(order.getTotalPrice()));
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,9 +62,9 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.viewHolder> 
 
                 Bundle bundle = new Bundle();
                 bundle.putInt("order_id", order.getId());
-                bundle.putString("order_date",order.getTime());
-                bundle.putBoolean("order_status",order.getStatus());
-                bundle.putDouble("order_total",order.getTotalPrice());
+                bundle.putString("order_date", order.getTime());
+                bundle.putBoolean("order_status", order.getStatus());
+                bundle.putDouble("order_total", order.getTotalPrice());
                 intent.putExtra("bundle_order", bundle);
                 context.startActivity(intent);
             }
@@ -89,13 +89,6 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.viewHolder> 
 
 
     }
-
-
-
-
-
-
-
 
 
 }

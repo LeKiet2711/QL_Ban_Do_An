@@ -12,9 +12,9 @@
         android:layout_height="wrap_content"
         android:text="Order ID"
         android:textSize="18sp"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvStatus"
@@ -22,9 +22,9 @@
         android:layout_height="wrap_content"
         android:text="Status"
         android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@+id/tvOrderId"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tvOrderId" />
 
     <TextView
         android:id="@+id/tvTotalPrice"
@@ -32,9 +32,9 @@
         android:layout_height="wrap_content"
         android:text="Total Amount"
         android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@+id/tvStatus"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tvStatus" />
 
     <TextView
         android:id="@+id/tvOrderDate"
@@ -42,8 +42,8 @@
         android:layout_height="wrap_content"
         android:text="Order Date"
         android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@+id/tvTotalPrice"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTotalPrice" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -68,13 +68,13 @@
         android:orientation="horizontal">
 
         <RatingBar
-            style="@style/Widget.AppCompat.RatingBar.Indicator"
             android:id="@+id/ratingBar"
-            android:secondaryProgressTint="#FFEB3B"
+            style="@style/Widget.AppCompat.RatingBar.Indicator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:progressTint="#FFEB3B" />
+            android:progressTint="#FFEB3B"
+            android:secondaryProgressTint="#FFEB3B" />
 
         <TextView
             android:id="@+id/tvRateDetail"
@@ -118,9 +118,9 @@
         android:id="@+id/tvDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="5dp"
+        android:layout_weight="1"
         android:text="TextView"
         android:textSize="10pt" />
 
@@ -143,8 +143,8 @@
             android:id="@+id/tvMinus"
             android:layout_width="40dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/edittext_background"
             android:layout_marginLeft="30dp"
+            android:background="@drawable/edittext_background"
             android:gravity="center"
             android:text="-"
             android:textColor="#FF5722"
@@ -165,8 +165,8 @@
             android:layout_width="40dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:gravity="center"
             android:background="@drawable/edittext_background"
+            android:gravity="center"
             android:text="+"
             android:textColor="#FF5722"
             android:textSize="12pt"
@@ -192,21 +192,21 @@
                 android:id="@+id/textView21"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:text="Total Price"
-                android:textSize="12pt"
                 android:textColor="@color/blue_grey"
-                android:textStyle="bold"
-                android:layout_marginLeft="10dp"/>
+                android:textSize="12pt"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvTotal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="12pt"
                 android:layout_marginLeft="10dp"
-                android:textStyle="bold"
+                android:text="TextView"
                 android:textColor="#FF5722"
-                android:text="TextView" />
+                android:textSize="12pt"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatButton
@@ -214,10 +214,10 @@
             android:layout_width="180dp"
             android:layout_height="60dp"
             android:backgroundTint="#FF5722"
-            android:textSize="8pt"
-            android:textColor="@color/white"
             android:drawableStart="@drawable/cart"
-            android:text="Add to cart" />
+            android:text="Add to cart"
+            android:textColor="@color/white"
+            android:textSize="8pt" />
     </LinearLayout>
 
 </LinearLayout>

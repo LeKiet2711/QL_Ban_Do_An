@@ -15,7 +15,7 @@ public class Foods {
     private int TimeId;
     private int TimeValue;
 
-    public Foods(){
+    public Foods() {
 
     }
 

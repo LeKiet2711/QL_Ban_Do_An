@@ -38,21 +38,20 @@ import java.util.Date;
 import java.util.Locale;
 
 public class CartActivity extends AppCompatActivity {
+    int idMax = 0;
+    String customerEmail;
     private ActivityCartBinding binding;
     private RecyclerView.Adapter adapter;
-
-    int idMax=0;
-
     private ManagmentCart managementCart;
     private double tax;
-    String customerEmail;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding=ActivityCartBinding.inflate(getLayoutInflater());
+        binding = ActivityCartBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        managementCart=new ManagmentCart(this);
+        managementCart = new ManagmentCart(this);
 
         caculateCart();
         initList();
@@ -60,40 +59,41 @@ public class CartActivity extends AppCompatActivity {
 
     }
 
-    private void initList(){
+    private void initList() {
 
-            binding.txtEmpty.setVisibility(View.GONE);
-            binding.scrollviewCart.setVisibility(View.VISIBLE);
+        binding.txtEmpty.setVisibility(View.GONE);
+        binding.scrollviewCart.setVisibility(View.VISIBLE);
 
 
-        LinearLayoutManager linearlayoutManager=new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
+        LinearLayoutManager linearlayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         binding.cartView.setLayoutManager(linearlayoutManager);
-        adapter=new CartAdapter(managementCart.getListCart(), this, () -> caculateCart());
+        adapter = new CartAdapter(managementCart.getListCart(), this, () -> caculateCart());
         binding.cartView.setAdapter(adapter);
     }
 
-    private void caculateCart(){
-        double percentTax=0.02;
-        double delivery=10;
+    private void caculateCart() {
+        double percentTax = 0.02;
+        double delivery = 10;
 
-        tax=Math.round(managementCart.getTotalFee()*percentTax*100)/100.0;
-        double total=Math.round((managementCart.getTotalFee()+tax+delivery)*100)/100.0;
-        double itemTotal=Math.round(managementCart.getTotalFee()*100)/100.0;
-        binding.txtTotalFee.setText("$"+itemTotal);
-        binding.txtTax.setText("$"+tax);
-        binding.txtDelivery.setText("$"+delivery);
-        binding.txtTotal.setText("$"+total);
+        tax = Math.round(managementCart.getTotalFee() * percentTax * 100) / 100.0;
+        double total = Math.round((managementCart.getTotalFee() + tax + delivery) * 100) / 100.0;
+        double itemTotal = Math.round(managementCart.getTotalFee() * 100) / 100.0;
+        binding.txtTotalFee.setText("$" + itemTotal);
+        binding.txtTax.setText("$" + tax);
+        binding.txtDelivery.setText("$" + delivery);
+        binding.txtTotal.setText("$" + total);
     }
 
-    private void setVariable(){
+    private void setVariable() {
 
         binding.backBtn.setOnClickListener(v -> finish());
         binding.btnThanhToan.setOnClickListener(v ->
-           getNewCartIdAndPlaceOrder()
+                getNewCartIdAndPlaceOrder()
 
 
         );
     }
+
     private void getNewCartIdAndPlaceOrder() {
         FirebaseDatabase database = FirebaseDatabase.getInstance("https://qlbandoan-6f252-default-rtdb.asia-southeast1.firebasedatabase.app/");
         DatabaseReference myRef = database.getReference("Cart");
@@ -105,11 +105,11 @@ public class CartActivity extends AppCompatActivity {
 
                 for (DataSnapshot bf : snapshot.getChildren()) {
                     Cart cart = bf.getValue(Cart.class);
-                    if(cart!=null&&cart.getId()>idMax)
-                        idMax=cart.getId();
+                    if (cart != null && cart.getId() > idMax)
+                        idMax = cart.getId();
 
                 }
-                placeOrder(idMax+1);
+                placeOrder(idMax + 1);
 
             }
 
@@ -121,11 +121,11 @@ public class CartActivity extends AppCompatActivity {
     }
 
     private void placeOrder(int newId) {
-        double percentTax=0.02;
-        double delivery=10;
+        double percentTax = 0.02;
+        double delivery = 10;
 
-        tax=Math.round(managementCart.getTotalFee()*percentTax*100)/100.0;
-        double total=Math.round((managementCart.getTotalFee()+tax+delivery)*100)/100.0;
+        tax = Math.round(managementCart.getTotalFee() * percentTax * 100) / 100.0;
+        double total = Math.round((managementCart.getTotalFee() + tax + delivery) * 100) / 100.0;
         SharedPreferences sharedPreferences = getSharedPreferences("user_email", Context.MODE_PRIVATE);
         customerEmail = sharedPreferences.getString("customerEmail", "");
         // Tạo một đơn hàng mới
@@ -141,24 +141,21 @@ public class CartActivity extends AppCompatActivity {
         DatabaseReference ordersRef = database.getReference("Cart");
         ordersRef.child(String.valueOf(newId)).setValue(cart)
 
-         .addOnSuccessListener(aVoid -> {
-            Toast.makeText(getApplicationContext(),"Successful",Toast.LENGTH_LONG).show();
-            adapter=new CartAdapter(managementCart.resetListCart(), this, () -> caculateCart());
-             binding.cartView.setAdapter(adapter);
-             binding.txtTotalFee.setText("$0");
-             binding.txtTax.setText("$0");
-             binding.txtDelivery.setText("$10");
-             binding.txtTotal.setText("$0");
-        })
+                .addOnSuccessListener(aVoid -> {
+                    Toast.makeText(getApplicationContext(), "Successful", Toast.LENGTH_LONG).show();
+                    adapter = new CartAdapter(managementCart.resetListCart(), this, () -> caculateCart());
+                    binding.cartView.setAdapter(adapter);
+                    binding.txtTotalFee.setText("$0");
+                    binding.txtTax.setText("$0");
+                    binding.txtDelivery.setText("$10");
+                    binding.txtTotal.setText("$0");
+                })
                 .addOnFailureListener(e -> {
-                    Toast.makeText(getApplicationContext(),"Failed",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Failed", Toast.LENGTH_LONG).show();
                 });
 
 
     }
-
-
-
 
 
 }

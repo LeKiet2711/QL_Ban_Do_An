@@ -98,7 +98,7 @@ public class ListFoodActivity extends AppCompatActivity {
                 }
 
                 adapterListFood = new CustomAdapterListFood(lstFood);
-                rvListFood.addItemDecoration(new DividerItemDecoration(ListFoodActivity.this, DividerItemDecoration.VERTICAL));
+                binding.rvListFood.addItemDecoration(new DividerItemDecoration(ListFoodActivity.this, DividerItemDecoration.VERTICAL));
                 RecyclerView.LayoutManager layoutManager = new GridLayoutManager(ListFoodActivity.this, 2);
 
                 binding.rvListFood.setLayoutManager(layoutManager);

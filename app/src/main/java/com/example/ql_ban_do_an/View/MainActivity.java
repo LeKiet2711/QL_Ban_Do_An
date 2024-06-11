@@ -56,9 +56,9 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Price> listPrice = new ArrayList<>();
     ArrayAdapter<String> adapter;
 
-    EditText edt,txtSearch;
-    ImageView btnLogout,timkiem_btn,btn_order;
-    TextView tvNameCustomer;
+    EditText edt, txtSearch;
+    ImageView btnLogout, timkiem_btn, btn_order;
+    TextView tvNameCustomer, tvBestFoods;
 
 
     @Override
@@ -117,6 +117,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        binding.tvBestFoods.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, BestFoodsActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initCategory() {
@@ -266,11 +273,11 @@ public class MainActivity extends AppCompatActivity {
         giaSP = (Spinner) findViewById(R.id.giaSP);
         bestFoodView = (RecyclerView) findViewById(R.id.bestFoodView);
         btnLogout = (ImageView) findViewById(R.id.btnLogout);
-        tvNameCustomer=(TextView) findViewById(R.id.tvNameCustomer);
-        timkiem_btn=(ImageView) findViewById(R.id.timkiem_btn);
-        btn_order=(ImageView) findViewById(R.id.btnOrder);
-        txtSearch=(EditText) findViewById(R.id.txtSearch);
-
+        tvNameCustomer = (TextView) findViewById(R.id.tvNameCustomer);
+        timkiem_btn = (ImageView) findViewById(R.id.timkiem_btn);
+        btn_order = (ImageView) findViewById(R.id.btnOrder);
+        txtSearch = (EditText) findViewById(R.id.txtSearch);
+        tvBestFoods = (TextView) findViewById(R.id.tvBestFoods);
     }
 
     ArrayList<String> convertLocationListToArrString(ArrayList<Location> lstLocation) {

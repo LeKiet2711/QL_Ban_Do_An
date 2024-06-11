@@ -18,8 +18,9 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 public class CustomAdapterDetailOrder extends RecyclerView.Adapter<CustomAdapterDetailOrder.OrderDetailViewHolder> {
-    private List<Foods> foodItemList;
     Context context;
+    private List<Foods> foodItemList;
+
     public CustomAdapterDetailOrder(List<Foods> foodItemList) {
         this.foodItemList = foodItemList;
     }
@@ -27,7 +28,7 @@ public class CustomAdapterDetailOrder extends RecyclerView.Adapter<CustomAdapter
     @NonNull
     @Override
     public OrderDetailViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        context=parent.getContext();
+        context = parent.getContext();
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_item_order_detail, parent, false);
         return new OrderDetailViewHolder(view);
     }

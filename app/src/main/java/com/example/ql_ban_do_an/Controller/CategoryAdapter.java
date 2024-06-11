@@ -24,16 +24,15 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.viewho
     ArrayList<Category> items;
     Context context;
 
-    public CategoryAdapter(ArrayList<Category> items)
-    {
+    public CategoryAdapter(ArrayList<Category> items) {
         this.items = items;
     }
 
     @NonNull
     @Override
     public CategoryAdapter.viewholder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        context=viewGroup.getContext();
-        View inflate= LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.viewholder_category,viewGroup,false);
+        context = viewGroup.getContext();
+        View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.viewholder_category, viewGroup, false);
 
         return new viewholder(inflate);
     }
@@ -43,37 +42,36 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.viewho
     public void onBindViewHolder(@NonNull CategoryAdapter.viewholder viewholder, int i) {
         int adapterPosition = viewholder.getAdapterPosition();
         viewholder.titleTxt.setText(items.get(i).getName());
-        switch (i)
-        {
-            case 0:{
+        switch (i) {
+            case 0: {
                 viewholder.pic.setBackgroundResource(R.drawable.cat_0_background);
                 break;
             }
-            case 1:{
+            case 1: {
                 viewholder.pic.setBackgroundResource(R.drawable.cat_1_background);
                 break;
             }
-            case 2:{
+            case 2: {
                 viewholder.pic.setBackgroundResource(R.drawable.cat_2_background);
                 break;
             }
-            case 3:{
+            case 3: {
                 viewholder.pic.setBackgroundResource(R.drawable.cat_3_background);
                 break;
             }
-            case 4:{
+            case 4: {
                 viewholder.pic.setBackgroundResource(R.drawable.cat_4_background);
                 break;
             }
-            case 5:{
+            case 5: {
                 viewholder.pic.setBackgroundResource(R.drawable.cat_5_background);
                 break;
             }
-            case 6:{
+            case 6: {
                 viewholder.pic.setBackgroundResource(R.drawable.cat_6_background);
                 break;
             }
-            case 7:{
+            case 7: {
                 viewholder.pic.setBackgroundResource(R.drawable.cat_7_background);
                 break;
 
@@ -115,14 +113,15 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.viewho
         return items.size();
     }
 
-    public class viewholder  extends RecyclerView.ViewHolder{
+    public class viewholder extends RecyclerView.ViewHolder {
         TextView titleTxt;
         ImageView pic;
+
         public viewholder(@NonNull View itemView) {
             super(itemView);
-            titleTxt=itemView.findViewById(R.id.catNameTxt);
+            titleTxt = itemView.findViewById(R.id.catNameTxt);
 
-            pic=itemView.findViewById(R.id.catImg);
+            pic = itemView.findViewById(R.id.catImg);
         }
     }
 }

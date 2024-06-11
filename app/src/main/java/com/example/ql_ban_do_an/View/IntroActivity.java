@@ -16,21 +16,20 @@ public class IntroActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding=ActivityIntroBinding.inflate(getLayoutInflater());
+        binding = ActivityIntroBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         setVariable();
         getWindow().setStatusBarColor(Color.parseColor("#FFE485"));
     }
 
-    private void setVariable(){
+    private void setVariable() {
         binding.loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mAuth.getCurrentUser()!=null){
+                if (mAuth.getCurrentUser() != null) {
                     startActivity(new Intent(IntroActivity.this, MainActivity.class));
-                }
-                else {
+                } else {
                     startActivity(new Intent(IntroActivity.this, LoginActivity.class));
                 }
 
@@ -40,7 +39,7 @@ public class IntroActivity extends BaseActivity {
         binding.signupBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(IntroActivity.this,SignupActivity.class));
+                startActivity(new Intent(IntroActivity.this, SignupActivity.class));
             }
         });
     }

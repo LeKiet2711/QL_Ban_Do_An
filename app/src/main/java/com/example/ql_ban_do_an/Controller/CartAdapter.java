@@ -24,13 +24,13 @@ import java.util.ArrayList;
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.viewholder> {
     ArrayList<Foods> list;
     Foods foods;
-    private ManagmentCart managmentCart;
     ChangeNumberItemsListener changeNumberItemsListener;
+    private ManagmentCart managmentCart;
     private Context context;
 
     public CartAdapter(ArrayList<Foods> list, Context context, ChangeNumberItemsListener changeNumberItemsListener) {
         this.list = list;
-        managmentCart=new ManagmentCart(context);
+        managmentCart = new ManagmentCart(context);
         this.context = context;
         this.changeNumberItemsListener = changeNumberItemsListener;
     }
@@ -38,16 +38,16 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.viewholder> {
     @NonNull
     @Override
     public CartAdapter.viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View inflate= LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_cart,parent,false);
+        View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_cart, parent, false);
         return new viewholder(inflate);
     }
 
     @Override
     public void onBindViewHolder(@NonNull CartAdapter.viewholder holder, int position) {
         holder.title.setText(list.get(position).getTitle());
-        holder.feeEachItem.setText("$"+list.get(position).getPrice());
-        holder.totalEachItem.setText(list.get(position).getNumberInCart()+" * $"+(
-                 list.get(position).getNumberInCart()*list.get(position).getPrice()));
+        holder.feeEachItem.setText("$" + list.get(position).getPrice());
+        holder.totalEachItem.setText(list.get(position).getNumberInCart() + " * $" + (
+                list.get(position).getNumberInCart() * list.get(position).getPrice()));
         holder.num.setText(String.valueOf(list.get(position).getNumberInCart()));
 
         Picasso.with(context)
@@ -70,20 +70,21 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.viewholder> {
         return list.size();
     }
 
-    public class viewholder extends RecyclerView.ViewHolder{
-        TextView title, feeEachItem, plusItem,minusItem;
+    public class viewholder extends RecyclerView.ViewHolder {
+        TextView title, feeEachItem, plusItem, minusItem;
         ImageView pic;
         TextView totalEachItem, num;
+
         public viewholder(@NonNull View itemView) {
             super(itemView);
 
-            title=itemView.findViewById(R.id.txtTitle);
-            pic=itemView.findViewById(R.id.pic);
-            feeEachItem=itemView.findViewById(R.id.feeEachItem);
-            plusItem=itemView.findViewById(R.id.btnPlusCart);
-            minusItem=itemView.findViewById(R.id.btnMinusCart);
-            totalEachItem=itemView.findViewById(R.id.totalEachItem);
-            num=itemView.findViewById(R.id.txtNumberItem);
+            title = itemView.findViewById(R.id.txtTitle);
+            pic = itemView.findViewById(R.id.pic);
+            feeEachItem = itemView.findViewById(R.id.feeEachItem);
+            plusItem = itemView.findViewById(R.id.btnPlusCart);
+            minusItem = itemView.findViewById(R.id.btnMinusCart);
+            totalEachItem = itemView.findViewById(R.id.totalEachItem);
+            num = itemView.findViewById(R.id.txtNumberItem);
         }
     }
 

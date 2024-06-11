@@ -1,11 +1,10 @@
 package com.example.ql_ban_do_an.Model;
 
 public class Price {
-    public Price() {
-    }
-
     private int Id;
     private String Value;
+    public Price() {
+    }
 
     public Price(int id) {
         Id = id;

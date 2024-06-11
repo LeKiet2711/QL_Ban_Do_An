@@ -21,19 +21,19 @@
                 android:id="@+id/imgListFood"
                 android:layout_width="130dp"
                 android:layout_height="130dp"
-                android:layout_margin="10dp"
                 android:layout_gravity="center"
+                android:layout_margin="10dp"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <TextView
                 android:id="@+id/tvTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="10pt"
-                android:textStyle="bold"
                 android:gravity="center"
+                android:text="TextView"
                 android:textColor="@color/black"
-                android:text="TextView" />
+                android:textSize="10pt"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -44,15 +44,15 @@
                     android:id="@+id/tvTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="8pt"
-                    android:text="TextView" />
+                    android:text="TextView"
+                    android:textSize="8pt" />
 
                 <ImageView
                     android:id="@+id/imageView2"
                     android:layout_width="15dp"
                     android:layout_height="15dp"
-                    android:layout_marginTop="5dp"
                     android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
                     app:srcCompat="@drawable/time" />
 
             </LinearLayout>
@@ -67,24 +67,24 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textStyle="bold"
-                    android:textSize="9pt"
+                    android:text="$0"
                     android:textColor="#F44336"
-                    android:text="$0" />
+                    android:textSize="9pt"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvRate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="9pt"
-                    android:text="TextView" />
+                    android:text="TextView"
+                    android:textSize="9pt" />
 
                 <ImageView
                     android:id="@+id/imageView3"
                     android:layout_width="15dp"
                     android:layout_height="15dp"
-                    android:layout_marginTop="5dp"
                     android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
                     app:srcCompat="@drawable/star" />
             </LinearLayout>
 

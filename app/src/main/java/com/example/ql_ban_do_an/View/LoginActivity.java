@@ -30,30 +30,39 @@ public class LoginActivity extends BaseActivity {
         setVariable();
 
     }
-    private void setVariable(){
+
+    private void setVariable() {
         binding.loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String email = binding.edtUser.getText().toString();
                 String password = binding.edtPass.getText().toString();
-                if(!email.isEmpty() && !password.isEmpty()){
-                    mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                if (!email.isEmpty() && !password.isEmpty()) {
+                    mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(task.isSuccessful()){
+                            if (task.isSuccessful()) {
                                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
                                 SharedPreferences sharedPreferences = getSharedPreferences("user_email", Context.MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
                                 editor.putString("customerEmail", email);
                                 editor.apply();
-                            }else {
-                                Toast.makeText(LoginActivity.this,"Authencation failed",Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(LoginActivity.this, "Authencation failed", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
-                }else {
-                    Toast.makeText(LoginActivity.this,"vui lòng điền username và password",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(LoginActivity.this, "vui lòng điền username và password", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        binding.edtSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
+                startActivity(intent);
             }
         });
     }

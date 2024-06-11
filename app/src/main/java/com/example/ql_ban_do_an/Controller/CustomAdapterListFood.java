@@ -47,7 +47,7 @@ public class CustomAdapterListFood extends RecyclerView.Adapter<CustomAdapterLis
         Foods foods = lstFood.get(position);
         holder.tvTitle.setText(foods.getTitle());
         holder.tvTime.setText(String.valueOf(foods.getTimeValue()) + " min");
-        holder.tvPrice.setText("$"+String.valueOf(foods.getPrice()));
+        holder.tvPrice.setText("$" + String.valueOf(foods.getPrice()));
         holder.tvRate.setText(String.valueOf(foods.getStar()));
 
         Picasso.with(context)

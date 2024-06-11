@@ -3,13 +3,13 @@ package com.example.ql_ban_do_an.Model;
 public class Location {
 
 
+    private int Id;
+    private String Loc;
     public Location(int id, String loc) {
         Id = id;
         Loc = loc;
     }
 
-    private int Id;
-    private String Loc;
     public Location() {
     }
 
@@ -19,7 +19,7 @@ public class Location {
 
     @Override
     public String toString() {
-        return  Loc;
+        return Loc;
     }
 
     public void setID(int Id) {

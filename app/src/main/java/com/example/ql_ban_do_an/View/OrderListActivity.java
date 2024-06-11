@@ -3,6 +3,8 @@ package com.example.ql_ban_do_an.View;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,13 +30,16 @@ public class OrderListActivity extends AppCompatActivity {
     ArrayList<Cart> orderList = new ArrayList<>();
     OrderAdapter orderListAdapter;
     RecyclerView rvOrderList;
-    String customerEmail="";
+    String customerEmail = "";
+    ImageButton btnBackM;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityOrderListBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        btnBackM = (ImageButton) findViewById(R.id.btnBackM);
 
         rvOrderList = findViewById(R.id.rvOrderList);
         SharedPreferences sharedPreferences = getSharedPreferences("user_email", Context.MODE_PRIVATE);
@@ -43,6 +48,13 @@ public class OrderListActivity extends AppCompatActivity {
         setupRecyclerView();
 
         getDataFromFirebase();
+
+        binding.btnBackM.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
     private void setupRecyclerView() {

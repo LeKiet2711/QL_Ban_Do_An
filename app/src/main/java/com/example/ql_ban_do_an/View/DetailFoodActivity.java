@@ -22,7 +22,6 @@ import java.text.DecimalFormat;
 
 public class DetailFoodActivity extends AppCompatActivity {
     ActivityDetailFoodBinding binding;
-    private ManagmentCart managmentCart;
     ImageButton btnBackDetail, btnFavourite;
     ImageView imgDetail;
     RatingBar ratingBar;
@@ -30,6 +29,7 @@ public class DetailFoodActivity extends AppCompatActivity {
     TextView tvNum, tvPlus, tvTotal;
     AppCompatButton btnAdd;
     Foods foods;
+    private ManagmentCart managmentCart;
     private int num = 1;
 
     @Override
@@ -62,7 +62,7 @@ public class DetailFoodActivity extends AppCompatActivity {
     }
 
     void addEvent() {
-        managmentCart=new ManagmentCart(this);
+        managmentCart = new ManagmentCart(this);
         binding.btnBackDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -61,13 +61,11 @@ public class CartActivity extends AppCompatActivity {
     }
 
     private void initList(){
-        if(managementCart.getListCart().isEmpty()){
-            binding.txtEmpty.setVisibility(View.VISIBLE);
-            binding.scrollviewCart.setVisibility(View.GONE);
-        }else{
+
             binding.txtEmpty.setVisibility(View.GONE);
             binding.scrollviewCart.setVisibility(View.VISIBLE);
-        }
+
+
         LinearLayoutManager linearlayoutManager=new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
         binding.cartView.setLayoutManager(linearlayoutManager);
         adapter=new CartAdapter(managementCart.getListCart(), this, () -> caculateCart());
@@ -149,7 +147,7 @@ public class CartActivity extends AppCompatActivity {
              binding.cartView.setAdapter(adapter);
              binding.txtTotalFee.setText("$0");
              binding.txtTax.setText("$0");
-             binding.txtDelivery.setText("$0");
+             binding.txtDelivery.setText("$10");
              binding.txtTotal.setText("$0");
         })
                 .addOnFailureListener(e -> {

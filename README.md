@@ -42,7 +42,7 @@
 
 ## Chức năng
 
-#### Website
+**Website**
 <h4>
   Các chức năng của quản lý
 </h4>
@@ -55,7 +55,7 @@
   <li>Thêm, xóa, sửa các danh mục liên quan đến nhân viên</li>
   <li>Xác nhận đơn hàng</li>
 </ul>
-#### Application
+**Application**
 <h5>Các chức năng của người dùng</h5>
 <p>Tìm kiếm và hiển thị thông tin:</p>
 <ul>
